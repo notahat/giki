@@ -1,0 +1,23 @@
+<% @title = "#{@project.name}" %>
+
+<% content_for(:header) do %>
+  <p>
+    <%= link_to("Projects", projects_path) %> &gt;
+    <%= link_to(h(@project.name), project_pages_path(@project)) %>
+  </p>
+<% end %>
+
+<h1><%=h @project.name %></h1>
+
+<ul>
+  <% for page in @pages %>
+    <li><%= link_to(h(page.name), [@project, page]) %></li>
+  <% end %>
+</ul>
+
+<% form_for([@project, @project.pages.build]) do |form| %>
+  <%= form.text_field(:name) %>
+  <%= form.submit("Create page") %>
+<% end %>
+
+<script>$('page_name').focus()</script>

@@ -1,0 +1,24 @@
+<% @title = "Projects" %>
+
+<% content_for(:header) do %>
+  <p>Projects</p>
+<% end %>
+
+<h1>Projects</h1>
+
+<ul>
+  <% for project in @projects %>
+    <li>
+      <%= link_to(h(project.name), project_pages_path(project)) %></td>
+      <%= link_to(delete_button, project, :method => :delete, :confirm => 'Really delete?') %>
+      <%= "git clone #{request.host}:#{project.path}" %>
+    </li>
+  <% end %>
+</ul>
+
+<% form_for(Project.new) do |form| %>
+  <%= form.text_field(:name) %>
+  <%= form.submit("Create project") %>
+<% end %>
+
+<script>$('project_name').focus()</script>

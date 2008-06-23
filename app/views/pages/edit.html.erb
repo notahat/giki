@@ -1,0 +1,24 @@
+<% @title = "#{@project.name} > #{@page.name} > edit" %>
+
+<% content_for(:header) do %>
+  <p>
+    <%= link_to("Projects", projects_path) %> &gt;
+    <%= link_to(h(@project.name), project_pages_path(@project)) %> &gt;
+    <%= link_to(h(@page.name), [@project, @page]) %> &gt;
+    edit
+  </p>
+<% end %>
+
+<div style="overflow: hidden">
+  <div style="float: left; width: 50%">
+    <% form_for([@project, @page]) do |form| %>
+      <%= form.text_area(:body, :style => "width: 90%; resize: vertical") %>
+      <%= form.submit('Save page')%>
+    <% end %>
+  </div>
+
+  <div class="wmd-preview" style="float: left; width: 50%"></div>
+</div>
+
+<script type="text/javascript">wmd_options = { output: "Markdown" }</script>
+<script type="text/javascript" src="/wmd/wmd.js"></script>

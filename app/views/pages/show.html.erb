@@ -1,0 +1,16 @@
+<% @title = "#{@project.name} > #{@page.name}" %>
+
+<% content_for(:header) do %>
+  <p>
+    <%= link_to("Projects", projects_path) %> &gt;
+    <%= link_to(h(@project.name), project_pages_path(@project)) %> &gt;
+    <%= @page.name %>
+  </p>
+
+  <p>
+    <%= link_to("Edit", edit_project_page_path(@project, @page)) %> |
+    <%= link_to("Open in TextMate", @page.textmate_url) %>
+  </p>
+<% end %>
+
+<%= markdown(@page.body) %>

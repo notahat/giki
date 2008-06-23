@@ -1,0 +1,9 @@
+body { font: 13px/1.5em Helvetica; margin: 0; }
+p { margin: 1.5em 0; }
+pre { font: 13px/1.5em Courier; background: #eeeeee; padding: 0 1.5em; }
+hr { height: 1px; background: #cccccc; border: 0; margin: 1.5em 0; }
+img.icon { margin-bottom: -4px; }
+p.flash_notice { background: #ddffdd; padding: 0.75em 1.5em; border: #00ff00 solid 1px; }
+
+#header { background: #eeeeee; padding: 1px 3em; border-bottom: 1px solid #888888; }
+#body { padding: 1px 3em 3em 3em; }

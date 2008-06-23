@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>giki: <%=h @title %></title>
+    
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+    <div id="header">
+      <% unless flash[:notice].blank? %>
+        <p class="flash_notice"><%=h flash[:notice] %></p>
+      <% end %>
+      
+      <%= yield :header%>
+    </div>
+    
+    <div id="body">
+      <%= yield %>
+    </div>
+  </body>
+</html>
