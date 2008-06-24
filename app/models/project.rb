@@ -48,6 +48,6 @@ class Project
   end
   
   def self.projects_root
-    "#{RAILS_ROOT}/db/projects"
+    "#{RAILS_ROOT}/db/projects/#{RAILS_ENV}"
   end
 end
