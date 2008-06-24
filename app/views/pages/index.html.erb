@@ -21,3 +21,23 @@
 <% end %>
 
 <script>$('page_name').focus()</script>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Message</th>
+  </thead>
+  <tbody>
+    <% @project.git.log.each do |commit| %>
+      <tr>
+        <td><%=h commit.sha %></td>
+        <td><%=h commit.date %></td>
+        <td><%=h commit.author.name %></td>
+        <td><%=h commit.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

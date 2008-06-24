@@ -22,7 +22,8 @@ class PagesController < ApplicationController
   
   def update
     @page = @project.pages.find(params[:id])
-    @page.body = params[:page][:body]
+    @page.body           = params[:page][:body]
+    @page.change_message = params[:page][:change_message]
     @page.save
     flash[:notice] = "Page saved."
     redirect_to([@project, @page])

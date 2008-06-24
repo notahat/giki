@@ -12,7 +12,15 @@
 <div style="overflow: hidden">
   <div style="float: left; width: 50%">
     <% form_for([@project, @page]) do |form| %>
-      <%= form.text_area(:body, :style => "width: 90%; resize: vertical") %>
+      <div class="row">
+        <%= form.text_area(:body, :style => "width: 90%; resize: vertical") %>
+      </div>
+      
+      <div class="row">
+        <%= form.label(:change_message) %>
+        <%= form.text_area(:change_message, :rows => 5, :style => "width: 90%") %>
+      </div>
+      
       <%= form.submit('Save page')%>
     <% end %>
   </div>

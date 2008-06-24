@@ -5,5 +5,13 @@ hr { height: 1px; background: #cccccc; border: 0; margin: 1.5em 0; }
 img.icon { margin-bottom: -4px; }
 p.flash_notice { background: #ddffdd; padding: 0.75em 1.5em; border: #008800 solid 1px; }
 
+table { border-collapse: collapse; margin: 1.5em -0.75em; }
+  table th { font-weight: bold; text-align: left; padding: 0 0.75em; }
+  table td { padding: 0 0.75em; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; }
+  
+form { margin: 1.5em 0; }
+  form .row { margin: 1.5em 0; }
+  form label { font-weight: bold; display: block; }
+  
 #header { background: #eeeeee; padding: 1px 3em; border-bottom: 1px solid #888888; }
 #body { padding: 1px 3em 3em 3em; }
