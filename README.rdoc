@@ -1,0 +1,26 @@
+= Giki
+
+Giki (pronounced "geeky") is a wiki built on Git (and Rails).
+
+Each project is stored as a directory within db/projects, and is simply a git repository
+containing a *.markdown file for each page.
+
+== To do
+
+- Move projects into db/projects/#{RAILS_ENV}
+- Work out how to write tests
+- View the change log for a single page
+- View previous revisions of a page
+- View the changes caused by a commit, in a nice diff format
+- Edit multiple pages and only commit when done
+- Commit a page after editing in an external editor
+- Copy the path of a page (or a project) to the clipboard, so it can be pasted into Terminal.app
+- Support git remotes, and pushing and pulling of projects
+- Allow projects stored elsewhere in the file system
+- Handle a whole directory tree of pages, rather than a flat list
+- Searching
+- Tagging
+- Make the CSS IE6/7 and Firefox 2/3 friendly
+- Make command-S when editing a page submit the form
+- Add a Giki logo to the header
+- Change the URLs from /projects/a/pages/b to just /a/b, at least for viewing pages
