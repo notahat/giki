@@ -1,3 +1,5 @@
+require 'git'
+
 class Project
   def self.all
     Dir.glob("#{projects_root}/*").map do |path|
@@ -24,7 +26,7 @@ class Project
     if new_record?
       Dir.mkdir(projects_root) unless File.exist?(self.class.projects_root)
       Dir.mkdir(path) unless File.exist?(path)
-      `cd #{path}; git init`
+      @git = Git.init(path)
       true
     end
   end
@@ -35,6 +37,10 @@ class Project
   
   def new_record?
     @name.blank? || !File.exist?(path)
+  end
+  
+  def git
+    @git ||= Git.open(path)
   end
   
   def path

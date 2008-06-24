@@ -1,3 +1,5 @@
+require 'git'
+
 class Page
   def initialize(params = {})
     @project = params[:project]
@@ -23,7 +25,8 @@ class Page
     file.write(@body)
     file.close
     @change_message = "-" if @change_message.blank?
-    `cd #{@project.path}; git add #{path}; git commit #{path} -m '#{@change_message}'`
+    @project.git.add(path)
+    @project.git.commit(@change_message)
   end
   
   def new_record?

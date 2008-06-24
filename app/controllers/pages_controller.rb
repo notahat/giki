@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @page = @project.pages.build(params[:page])
     @page.save
     flash[:notice] = "Page created."
-    redirect_to([@project, @page])
+    redirect_to(edit_project_page_url(@project, @page))
   end
   
   def edit
