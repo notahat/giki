@@ -50,4 +50,8 @@ class Project
   def self.projects_root
     "#{RAILS_ROOT}/db/projects/#{RAILS_ENV}"
   end
+  
+  def ==(project)
+    project.name == @name
+  end
 end

@@ -9,11 +9,15 @@ class PagesController < ApplicationController
     @page = @project.pages.find(params[:id])
   end
   
-  def create
+  def new
     @page = @project.pages.build(params[:page])
-    @page.save
+    render(:action => "edit")
+  end
+  
+  def create
+    @page = @project.pages.create(params[:page])
     flash[:notice] = "Page created."
-    redirect_to(edit_project_page_url(@project, @page))
+    redirect_to([@project, @page])
   end
   
   def edit
@@ -22,14 +26,15 @@ class PagesController < ApplicationController
   
   def update
     @page = @project.pages.find(params[:id])
-    @page.body           = params[:page][:body]
-    @page.change_message = params[:page][:change_message]
-    @page.save
+    @page.update_attributes(params[:page])
     flash[:notice] = "Page saved."
     redirect_to([@project, @page])
   end
   
+private
+
   def find_project
     @project = Project.find(params[:project_id])
   end
+  
 end

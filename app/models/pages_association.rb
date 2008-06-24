@@ -17,7 +17,14 @@ class PagesAssociation
     Page.new(:project => @project, :name => name)
   end
   
-  def build(params = {})
+  def build(params = nil)
+    params ||= {}
     Page.new(params.merge(:project => @project))
+  end
+  
+  def create(params = nil)
+    page = build(params)
+    page.save
+    page
   end
 end

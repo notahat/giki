@@ -4,29 +4,30 @@
   <p>
     <%= link_to("Projects", projects_path) %> &gt;
     <%= link_to(h(@project.name), project_pages_path(@project)) %> &gt;
-    <%= link_to(h(@page.name), [@project, @page]) %> &gt;
-    edit
+    <%= link_to(h(@page.name), [@project, @page]) %>
   </p>
 <% end %>
 
-<div style="overflow: hidden">
-  <div style="float: left; width: 50%">
-    <% form_for([@project, @page]) do |form| %>
-      <div class="row">
-        <%= form.text_area(:body, :style => "width: 90%; resize: vertical") %>
-      </div>
-      
-      <div class="row">
-        <%= form.label(:change_message) %>
-        <%= form.text_area(:change_message, :rows => 5, :style => "width: 90%") %>
-      </div>
-      
-      <%= form.submit('Save page')%>
-    <% end %>
-  </div>
-
-  <div class="wmd-preview" style="float: left; width: 50%"></div>
+<div style="float: left; width: 50%">
+  <% form_for([@project, @page]) do |form| %>
+    <%= form.hidden_field(:name) %>
+    
+    <div class="row">
+      <%= form.text_area(:body, :style => "width: 90%; resize: vertical") %>
+    </div>
+    
+    <div class="row">
+      <%= form.label(:change_message) %>
+      <%= form.text_area(:change_message, :rows => 5, :style => "width: 90%") %>
+    </div>
+    
+    <%= form.submit(@page.new_record? ? 'Create page' : 'Save page') %>
+  <% end %>
+  
+  <script>$('page_body').focus()</script>
 </div>
+
+<div class="wmd-preview" style="float: left; width: 50%"></div>
 
 <script type="text/javascript">wmd_options = { output: "Markdown" }</script>
 <script type="text/javascript" src="/wmd/wmd.js"></script>

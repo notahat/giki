@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   
   map.resources :projects do |project|
-    project.resources :pages
+    project.resources :pages, :new => { :new => :any }
   end
 
   map.root :controller => "projects"

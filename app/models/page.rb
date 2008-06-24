@@ -1,13 +1,22 @@
 require 'git'
 
 class Page
-  def initialize(params = {})
-    @project = params[:project]
-    @name    = params[:name]
+  def initialize(attributes = nil)
+    self.attributes = attributes
   end
   
-  attr_reader :project
-  attr_reader :name
+  def attributes=(attributes = nil)
+    attributes ||= {}
+    attributes.each {|key, value| send("#{key}=", value) }
+  end
+  
+  def update_attributes(attributes = nil)
+    self.attributes = attributes
+    save
+  end
+  
+  attr_accessor :project
+  attr_accessor :name
   attr_writer :body
   attr_accessor :change_message
   alias_method :to_param, :name
@@ -30,7 +39,7 @@ class Page
   end
   
   def new_record?
-    !File.exist?(path)
+    name.blank? || !File.exist?(path)
   end
   
   def path

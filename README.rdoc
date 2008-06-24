@@ -13,7 +13,6 @@ is simply a git repository containing a *.markdown file for each page.
 
 == To do
 
-- Work out how to write tests
 - Add user support so we can put a wiki on a server and have commits happen as different users
 - View the change log for a single page
 - View previous revisions of a page
@@ -24,6 +23,7 @@ is simply a git repository containing a *.markdown file for each page.
 - Support git remotes, and pushing and pulling of projects
 - Allow projects stored elsewhere in the file system
 - Handle a whole directory tree of pages, rather than a flat list
+- Support formats other than markdown
 - Searching
 - Tagging
 - Make the CSS IE6/7 and Firefox 2/3 friendly

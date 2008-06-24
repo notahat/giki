@@ -15,7 +15,7 @@
   <% end %>
 </ul>
 
-<% form_for([@project, @project.pages.build]) do |form| %>
+<% form_for(:page, Page.new, :url => new_project_page_path(@project)) do |form| %>
   <%= form.text_field(:name) %>
   <%= form.submit("Create page") %>
 <% end %>
