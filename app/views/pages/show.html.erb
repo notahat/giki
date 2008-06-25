@@ -29,7 +29,6 @@
           <td><%=h commit.message %></td>
           <td><%= time_ago_in_words(commit.date) %> ago</td>
           <td><%=h commit.author.name %></td>
-          <td><%=h commit.sha %></td>
         </tr>
       <% end %>
     </tbody>
