@@ -9,11 +9,15 @@
 
 <h1><%=h @project.name %></h1>
 
-<ul>
-  <% for page in @pages %>
-    <li><%= link_to(h(page.name), [@project, page]) %></li>
-  <% end %>
-</ul>
+<% unless @pages.empty? %>
+  <table>
+    <% for page in @pages %>
+      <tr>
+        <td><%= link_to(h(page.name), [@project, page]) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 
 <% form_for(:page, Page.new, :url => new_project_page_path(@project)) do |form| %>
   <%= form.text_field(:name) %>
@@ -22,7 +26,23 @@
 
 <script>$('page_name').focus()</script>
 
-<% unless @pages.length == 0 %>
+<% unless @pages.empty? %>
+  <% unless @project.git.remotes.empty? %>
+    <h2>Remotes</h2>
+  
+    <table>
+      <% for remote in @project.git.remotes %>
+        <tr>
+          <td><%=h remote.name %></td>
+          <td><%= link_to("pull", pull_project_path(@project, :remote => remote.name)) %></td>
+          <td><%= link_to("push", push_project_path(@project, :remote => remote.name)) %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  
+  <h2>History</h2>
+  
   <table>
     <thead>
       <tr>
