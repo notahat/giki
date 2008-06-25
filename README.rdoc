@@ -13,6 +13,7 @@ is simply a git repository containing a *.markdown file for each page.
 
 == To do
 
+- Delete pages
 - Add user support so we can put a wiki on a server and have commits happen as different users
 - View the change log for a single page
 - View previous revisions of a page

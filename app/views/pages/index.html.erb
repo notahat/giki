@@ -22,22 +22,21 @@
 
 <script>$('page_name').focus()</script>
 
-<% if @pages.length > 0 %>
+<% unless @pages.length == 0 %>
   <table>
     <thead>
       <tr>
-        <th></th>
+        <th>Message</th>
         <th>Date</th>
         <th>Author</th>
-        <th>Message</th>
     </thead>
     <tbody>
       <% @project.git.log.each do |commit| %>
         <tr>
-          <td><%=h commit.sha %></td>
-          <td><%=h commit.date %></td>
-          <td><%=h commit.author.name %></td>
           <td><%=h commit.message %></td>
+          <td><%= time_ago_in_words(commit.date) %> ago</td>
+          <td><%=h commit.author.name %></td>
+          <td><%=h commit.sha %></td>
         </tr>
       <% end %>
     </tbody>

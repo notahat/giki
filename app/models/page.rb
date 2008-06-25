@@ -45,4 +45,8 @@ class Page
   def path
     "#{@project.path}/#{@name}.markdown"
   end
+  
+  def log
+    @project.git.gblob(path).log
+  end
 end

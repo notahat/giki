@@ -14,3 +14,24 @@
 <% end %>
 
 <%= markdown(@page.body) %>
+
+<% unless @page.new_record? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Author</th>
+    </thead>
+    <tbody>
+      <% @page.log.each do |commit| %>
+        <tr>
+          <td><%=h commit.message %></td>
+          <td><%= time_ago_in_words(commit.date) %> ago</td>
+          <td><%=h commit.author.name %></td>
+          <td><%=h commit.sha %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
