@@ -25,6 +25,6 @@ describe Page do
   end
   
   def create_test_page
-    @page = @project.pages.create(:name => "test_page", :body => "just a test", :commit_message => "added test_page")
+    @page = @project.pages.create(:name => "test_page", :body => "just a test", :change_message => "added test_page")
   end
 end

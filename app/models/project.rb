@@ -24,6 +24,7 @@ class Project
     
   def save
     if new_record?
+      Dir.mkdir("#{RAILS_ROOT}/db/projects") unless File.exist?("#{RAILS_ROOT}/db/projects")
       Dir.mkdir(self.class.projects_root) unless File.exist?(self.class.projects_root)
       Dir.mkdir(path) unless File.exist?(path)
       @git = Git.init(path)
