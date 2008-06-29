@@ -2,6 +2,8 @@
 
 Giki (pronounced "geeky") is a wiki built on Git (and Rails).
 
+Be warned: this is a proof-of-concept, and is a long way from being ready for production use.
+
 Each project is stored as a directory within db/projects/#{RAILS_ENV}, and
 is simply a git repository containing a *.markdown file for each page.
 
